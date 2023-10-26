@@ -6,7 +6,26 @@
 	<title>Document</title>
 </head>
 <body>
-	<div>hello</div>
+	<form action="" class="form">
+		<div class="form__item">
+			<input required placeholder="Name" type="text" class="input">
+			<span>Invalid name</span>
+		</div>
+		<div class="form__item">
+			<input required placeholder="Email" type="email" class="input">
+			<span>Invalid email</span>
+		</div>
+		<div class="form__item">
+			<input required placeholder="Phone" type="text" class="input input_phone" pattern="^[^_]+$">
+			<span>Invalid phone</span>
+		</div>
+		<div class="form__item">
+			<textarea required placeholder="Message" name="" id="" cols="30" rows="10" class="input"></textarea>
+			<span>Invalid message</span>
+		</div>
+		<button class="form__button button">Submit</button>
+	</form>
+	<span></span>
 	<script src="./js/index.js"></script>
 </body>
 </html>
