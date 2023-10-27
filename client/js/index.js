@@ -1,8 +1,26 @@
-import Inputmask from "inputmask";
 import 'scss/style.scss'
+import { setPhoneMask } from './setPhoneMask';
+import { sendRequest } from './sendRequest';
 
-const phoneInput = document.querySelector(".input_phone");
-Inputmask("+375-99-999-99-99").mask(phoneInput);
+setPhoneMask()
+
+const isFormValid = (inputs) => ![...inputs].every(input => input.checkValidity())
+
+const generateParams = (inputs) => {
+	return [...inputs].reduce((acc, input) => [
+		...acc, 
+		`${input.placeholder.toLowerCase()}=${input.value}`
+	], []).join('&')
+}
+
+const onButtonClick = (e) => {
+	e.preventDefault()
+	const inputs = document.querySelectorAll('.form .input')
+	if(isFormValid(inputs)) return alert('Form is invalid')
+	const params = generateParams(inputs)
+	sendRequest(params)
+}
 
 const button = document.querySelector(".form__button");
-button.addEventListener('click', () => document.querySelectorAll('.input').forEach(item => console.log(item.value)))
+button.addEventListener('click', onButtonClick)
+
