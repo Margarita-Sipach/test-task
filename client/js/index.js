@@ -1,26 +1,15 @@
 import 'scss/style.scss'
 import { setPhoneMask } from './setPhoneMask';
-import { sendRequest } from './sendRequest';
+import { closeModal, openModal } from './modal';
+import { onButtonClick } from './form';
 
 setPhoneMask()
-
-const isFormValid = (inputs) => ![...inputs].every(input => input.checkValidity())
-
-const generateParams = (inputs) => {
-	return [...inputs].reduce((acc, input) => [
-		...acc, 
-		`${input.placeholder.toLowerCase()}=${input.value}`
-	], []).join('&')
-}
-
-const onButtonClick = (e) => {
-	e.preventDefault()
-	const inputs = document.querySelectorAll('.form .input')
-	if(isFormValid(inputs)) return alert('Form is invalid')
-	const params = generateParams(inputs)
-	sendRequest(params)
-}
 
 const button = document.querySelector(".form__button");
 button.addEventListener('click', onButtonClick)
 
+const modal = document.querySelector('.modal');
+const modalButton = document.querySelector('.button_open');
+
+modalButton.addEventListener('click', () => openModal(modal))
+modal.addEventListener('click', (e) => closeModal(e, modal))

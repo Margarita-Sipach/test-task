@@ -1,0 +1,15 @@
+body{
+	transition: 0s all ease;
+}
+
+.wrapper{
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.no-scroll{
+	position: fixed;
+	overflow-y: hidden;
+	padding-right: 17px;
+}
