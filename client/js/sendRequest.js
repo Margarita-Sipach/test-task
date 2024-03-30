@@ -14,4 +14,5 @@ export const sendRequest = (params) => {
 	xhttp.open("POST", "https://test-task-server-2nyh.onrender.com/api/registration", true)
 	xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xhttp.send(params)
+	alert('Form is sent')
 }
