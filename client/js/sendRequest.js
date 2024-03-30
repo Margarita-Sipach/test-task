@@ -11,7 +11,7 @@ export const sendRequest = (params) => {
 			console.log(JSON.parse(this.response))
 		}
 	}
-	xhttp.open("POST", "http://localhost:9090/api/registration", true)
+	xhttp.open("POST", "https://test-task-server-2nyh.onrender.com/api/registration", true)
 	xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xhttp.send(params)
 }
